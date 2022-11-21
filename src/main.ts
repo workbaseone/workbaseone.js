@@ -1,30 +1,18 @@
 
-import { ENDPOINTS, ReqBody } from "./constants";
+import { ENDPOINTS, Stream } from "./constants";
 
 /**
  * WorkbaseONE Main client
  */
- export default class Main {
+ export default class WorkbaseONE {
     private readonly token: string;
-    private readonly project: string;
   
     /**
-     * Construct a new LogSnag instance
-     * @param token LogSnag API token
-     * @param project LogSnag project name
-     * for more information, see: docs.logsnag.com
+     * Construct a new instance
+     * @param token workbaseONE API token -  go to settings/apps/<your_app>/<your_block>
      */
-    constructor({ token, project }: { token: string; project: string }) {
+    constructor({ token }: { token: string; }) {
       this.token = token;
-      this.project = project;
-    }
-  
-    /**
-     * Get project name
-     * @returns project name
-     */
-    getProject(): string {
-      return this.project;
     }
   
     /**
@@ -36,11 +24,11 @@ import { ENDPOINTS, ReqBody } from "./constants";
     }
   
     /**
-     * Publish a new event to LogSnag
+     * Send streams to workbaseONE
      * @param options
-     * @returns true when successfully published
+     * @returns true when request is successfull
      */
-    public async publish(options: ReqBody): Promise<boolean> {
+    public async publish(options: Stream): Promise<boolean> {
       const headers = {
         'Content-Type': 'application/json',
         Authorization: this.createAuthorizationHeader()
@@ -49,7 +37,6 @@ import { ENDPOINTS, ReqBody } from "./constants";
       const method = 'POST';
       const body = JSON.stringify({
         ...options,
-        project: this.getProject()
       });
   
       const response = await fetch(ENDPOINTS.STREAM, { method, body, headers });

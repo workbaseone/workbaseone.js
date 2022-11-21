@@ -1,7 +1,7 @@
 {
-    "name": "workbaseONE",
+    "name": "workbaseone",
     "version": "0.0.1",
-    "description": "workbaseONE JS client to send the event streams from your js application",
+    "description": "workbaseone JS client to send the event streams from your js application",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
@@ -13,7 +13,8 @@
       },
       "keywords": [
         "workbaseone",
-        "events"
+        "events",
+        "streams"
       ],
       "author": "Vijayasankar",
       "license": "MIT",

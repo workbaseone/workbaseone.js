@@ -1,43 +1,34 @@
-const WORKBASEONE_API = 'https://api.workbaseone.com';
+const WORKBASEONE_API = 'https://app.workbaseone.com';
 
 export const ENDPOINTS = {
    STREAM: `${WORKBASEONE_API}/v1/accounts`,
 }
 
 /**
- * Options for publishing LogSnag events
+ * Stream request body
  */
- export interface ReqBody {
+ export interface Stream {
     /**
-     * Channel name
-     * example: "waitlist"
+     * Block name
+     * example: "contacts"
      */
-    channel: string;
+    block_name: string;
   
     /**
-     * Event name
-     * example: "User Joined"
+     * Stream name
+     * example: "User signed in"
      */
-    event: string;
+    stream_name: string;
   
     /**
-     * Event description
-     * example: "joe@example.com joined waitlist"
+     * Stream description
+     * example: "Matt signed in using the google sso"
      */
-    description?: string;
+    stream_description?: string;
   
     /**
-     * Event icon (emoji)
-     * must be a single emoji
+     * Stream icon (emoji)
      * example: "🎉"
      */
-    icon?: string;
-  
-    
-  
-    /**
-     * Send push notification
-     */
-    notify?: boolean;
-  
+    stream_icon?: string;
   }
