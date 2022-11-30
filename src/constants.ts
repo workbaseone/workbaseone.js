@@ -1,7 +1,8 @@
 const WORKBASEONE_API = 'https://app.workbaseone.com';
+const WORKBASEONE_LOCAL = 'http://localhost:3000';
 
 export const ENDPOINTS = {
-   STREAM: `${WORKBASEONE_API}/v1/accounts`,
+   STREAM: `${WORKBASEONE_LOCAL}/v1/streams`,
 }
 
 /**
@@ -9,26 +10,33 @@ export const ENDPOINTS = {
  */
  export interface Stream {
     /**
-     * Block name
+     * Block
      * example: "contacts"
      */
-    block_name: string;
+    block: string;
   
     /**
-     * Stream name
+     * name
      * example: "User signed in"
      */
-    stream_name: string;
+    name: string;
   
     /**
-     * Stream description
+     * description
      * example: "Matt signed in using the google sso"
      */
-    stream_description?: string;
+    description?: string;
   
     /**
-     * Stream icon (emoji)
-     * example: "🎉"
+     * icon (emoji)
+     * example: "🧲"
      */
-    stream_icon?: string;
+    icon?: string;
+
+    /**
+     * tags
+     * example: "[`bingo`,`email:sankar@gmail.com`]"
+     * email prefix will make the event assigned under the contact if exists
+     */
+    tags?: string[];
   }

@@ -1,25 +1,41 @@
 {
     "name": "workbaseone",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "workbaseone JS client to send the event streams from your js application",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'"
+    },
     "files": [
-      "/dist"
+        "/dist"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/workbaseone/workbaseone.js.git"
-      },
-      "keywords": [
+    },
+    "keywords": [
         "workbaseone",
         "events",
         "streams"
-      ],
-      "author": "Vijayasankar",
-      "license": "MIT",
-      "bugs": {
+    ],
+    "author": "Vijayasankar",
+    "license": "MIT",
+    "bugs": {
         "url": "https://github.com/workbaseone/workbaseone.js/issues"
-      },
-      "homepage": "https://github.com/workbaseone/workbaseone.js#readme"
-  }
+    },
+    "homepage": "https://github.com/workbaseone/workbaseone.js#readme",
+    "devDependencies": {
+        "typescript": "^4.9.3"
+    },
+    "dependencies": {
+        "@types/chai": "^4.3.4",
+        "@types/mocha": "^10.0.0",
+        "chai": "^4.3.7",
+        "isomorphic-fetch": "^3.0.0",
+        "mocha": "^10.1.0",
+        "node-fetch": "^3.3.0",
+        "ts-node": "^10.9.1"
+    }
+}

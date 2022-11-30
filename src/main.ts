@@ -1,5 +1,6 @@
 
 import { ENDPOINTS, Stream } from "./constants";
+require('isomorphic-fetch');
 
 /**
  * WorkbaseONE Main client
